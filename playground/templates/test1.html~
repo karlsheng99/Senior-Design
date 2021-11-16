@@ -1,0 +1,117 @@
+ n<html>
+  <head>
+    <script>
+	//function that display value
+      function dis(val){
+	  document.getElementById("result").value+=val
+      }	
+      //function that evaluates the digit and return result
+      function solve()
+      {
+	  let x = document.getElementById("result").value
+	  let y = eval(x)
+	  document.getElementById("result").value = y
+      }
+      //function that clear the display
+      function clr()
+      {
+	  document.getElementById("result").value = ""
+      }
+      function apply(passForm){
+	  set fso = CreateObject("Scripting.FileSystemObject"); 
+	  set s   = fso.CreateTextFile("/home/pi/senior_design/playground/files/filename.txt", True);
+	  
+	  var taskName = document.getElementById('TaskName');
+	  var taskNumber  = document.getElementById('TaskNumber');
+	  
+	  s.writeline(taskNumber + ":" + TaskName);
+	  
+	  s.writeline("-----------------------------");
+	  s.Close();
+      }
+      
+      }
+    </script>
+    <!-- for styling -->
+    <style>
+      .title{
+	  margin-bottom: 60px;
+	  text-align:center;
+	  width: 510px;
+	  color:green;
+	  border: solid black 2px;
+      }
+      
+      input[type="button"]
+      {
+	  background-color:green;
+	  color: black;
+	  border: solid black 2px;
+	  width:100%
+      }
+      
+      input[type="text"]
+      {
+	  background-color:white;
+	  border: solid black 2px;
+	  width:100%
+      }
+    </style>
+  </head>
+  <!-- create table -->
+  <body>
+    <!--      <div class = title >Tasktop Calculator</div>
+    <table border="1">
+      <tr>
+	<td colspan="3"><input type="text" id="result"/></td>
+	<td><input type="button" value="Apply" onclick="clr()"/> </td>
+      </tr>
+
+
+
+      <tr>
+	<td colspan="3"><input type="text" id="TaskName"/></td>
+	<form onSubmit="apply(this)">
+	  <td><input type="button" value="Apply" onclick="apply(TaskName,TaskNumber)"/> </td>
+      </tr>
+
+
+      
+      <tr>
+	<td colspan="3"><input type="text" id="result"/></td>
+	<td><input type="button" value="Apply" onclick="dis('/')"/> </td>
+      </tr>
+      <tr>
+	<td colspan="3"><input type="text" id="result"/></td>
+	<td><input type="button" value="Apply" onclick="dis('/')"/> </td>
+      </tr>
+      <tr>
+	<td colspan="3"><input type="text" id="result"/></td>
+	<td><input type="button" value="Apply" onclick="dis('/')"/> </td>
+      </tr>
+      <tr>
+	<td colspan="3"><input type="text" id="result"/></td>
+	<td><input type="button" value="Apply" onclick="dis('/')"/> </td>
+      </tr>
+      <tr>
+	<td><input type="button" value="." onclick="dis('.')"/> </td>
+	<td><input type="button" value="0" onclick="dis('0')"/> </td>
+	<td><input type="button" value="=" onclick="solve()"/> </td>
+	<td><input type="button" value="*" onclick="dis('*')"/> </td>
+      </tr>
+    </table>     -->
+
+
+
+    
+  </body>
+</html>
+<form onSubmit="WriteToFile(this)"> 
+<label>Type your first name:</label> 
+<input type="text" name="FirstName" id="firstName" size="20"> 
+ 
+<label>Type your last name: </abel> 
+<input type="text" name="LastName" id="lastName" size="20"> 
+ 
+<input type="submit" value="submit"> 
+</form> 
