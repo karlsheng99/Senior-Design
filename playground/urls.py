@@ -3,7 +3,7 @@ from . import views
 
 # URL config
 urlpatterns = [
-    path('daily_summary/', views.daily_summary),
-    path('tasks/', views.task_list),
-    path('settings/', views.test)
+    path('daily_summary/', views.DailySummary.as_view()),
+    #path('tasks/', views.task_list),
+    path('settings/', views.Settings.as_view())
 ]
