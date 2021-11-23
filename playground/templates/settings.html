@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
 
-  <body style="text-align: center;">
-	
+<head>
+</head>
+
+<body style="text-align: center;">
+
 	<h1 style="color: green;">Tasktop Settings</h1>
 
 	<h3>{{instruction}}</h3>
 	<form class="" action="" method="post">
-	  {% csrf_token %}
-	  {{form.as_p}}
-	  <!--
+		{% csrf_token %}
+		{{form.as_p}}
+		<!--
 	  <input type="text" name="array[]" value="{{task1}}" /><br>
 	  <input type="text" name="array[]" value="{{task2}}" /><br>
 	  <input type="text" name="array[]" value="{{task3}}" /><br>
 	  <input type="text" name="array[]" value="{{task4}}" /><br>
 	  <input type="text" name="array[]" value="{{task5}}" /><br>
 	  -->
-	  <button type="submit" name="button" onclick="apply()">Apply</button>
+		<button type="submit" name="button" onclick="apply()">Apply</button>
 	</form>
-  </body>
+</body>
 
 </html>
-
