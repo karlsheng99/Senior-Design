@@ -17,6 +17,19 @@ class DailySummary(TemplateView):
                        'task4': tasks[3], 'hour4': hours[3],
                        'task5': tasks[4], 'hour5': hours[4]})
 
+class BarGraph(TemplateView):
+
+    template_name = 'BarGraph.html'
+
+    def get(self, request):
+        tasks, hours = readfile.readfile(csv_path)
+        return render(request, self.template_name,
+                      {'task1': tasks[0], 'hour1': hours[0],
+                       'task2': tasks[1], 'hour2': hours[1],
+                       'task3': tasks[2], 'hour3': hours[2],
+                       'task4': tasks[3], 'hour4': hours[3],
+                       'task5': tasks[4], 'hour5': hours[4]})
+
 
 class Settings(TemplateView):
     template_name = 'settings.html'
@@ -46,3 +59,5 @@ class Settings(TemplateView):
         writefile.update_task_names(csv_path, task_names)
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Task Names Applied'})
+
+
