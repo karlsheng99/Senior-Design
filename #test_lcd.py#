@@ -1,0 +1,20 @@
+import RGB1602
+import time
+import math
+
+
+def display(lcd, task_name, color):
+	lcd.printout(task_name)
+	lcd.setCursor(0, 1)
+	# timer
+	start = time.time()
+	while true:
+		now = time.timer()
+		lcd.printout(str(now - start))
+	lcd.setRGB(color[0], color[1], color[2])
+
+
+def main():
+	lcd = RGB1602.RGB1602(16, 2)
+        while r 
+        display(lcd, 'task1', (148, 0, 110))
