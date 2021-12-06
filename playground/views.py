@@ -38,6 +38,21 @@ class BarGraph(TemplateView):
                        'task4': tasks[3], 'hour4': hours[3],
                        'task5': tasks[4], 'hour5': hours[4]})
 
+class BarGraph2(TemplateView):
+
+    template_name = 'BarGraph2.html'
+
+    def get(self, request):
+        tasks, hours = readfile.readfile('playground/files/test.csv')
+        initial_data = {'task1': tasks[0], 'hour1': hours[0],
+                        'task2': tasks[1], 'hour2': hours[1],
+                        'task3': tasks[2], 'hour3': hours[2],
+                        'task4': tasks[3], 'hour4': hours[3],
+                        'task5': tasks[4], 'hour5': hours[4]}
+        form = forms.TaskNamesForm(initial=initial_data)
+        return render(request, self.template_name)
+                       
+
 
 class Settings(TemplateView):
     template_name = 'settings.html'
