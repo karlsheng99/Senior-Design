@@ -5,11 +5,32 @@ from . import readfile, writefile
 
 csv_path = 'playground/files/test.csv'
 
+
 class DailySummary(TemplateView):
     template_name = 'daily_summary.html'
 
     def get(self, request):
         tasks, hours = readfile.readfile(csv_path)
+        return render(request, self.template_name,
+                      {'task1': tasks[0], 'hour1': hours[0],
+                       'task2': tasks[1], 'hour2': hours[1],
+                       'task3': tasks[2], 'hour3': hours[2],
+                       'task4': tasks[3], 'hour4': hours[3],
+                       'task5': tasks[4], 'hour5': hours[4]})
+
+
+class BarGraph(TemplateView):
+
+    template_name = 'BarGraph.html'
+
+    def get(self, request):
+        tasks, hours = readfile.readfile('playground/files/test.csv')
+        initial_data = {'task1': tasks[0], 'hour1': hours[0],
+                        'task2': tasks[1], 'hour2': hours[1],
+                        'task3': tasks[2], 'hour3': hours[2],
+                        'task4': tasks[3], 'hour4': hours[3],
+                        'task5': tasks[4], 'hour5': hours[4]}
+        form = forms.TaskNamesForm(initial=initial_data)
         return render(request, self.template_name,
                       {'task1': tasks[0], 'hour1': hours[0],
                        'task2': tasks[1], 'hour2': hours[1],
@@ -28,7 +49,7 @@ class Settings(TemplateView):
                         'task3': tasks[2],
                         'task4': tasks[3],
                         'task5': tasks[4]}
-        
+
         form = forms.TaskNamesForm(initial=initial_data)
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Input Task Names'})

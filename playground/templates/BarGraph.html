@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var Color1 = "#6966FF"
+var Color2 = "#EDCA93"
+var Color3 = "#345632"
+var Color4 = "#0090FF"
+var Color5 = "#CC0033"
+var Color6 = "#99DD00"
+
+const d1 = new Date(2021,11,17)
+const d2 = new Date(2021,11,18)
+const d3 = new Date(2021,11,19)
+const d4 = new Date(2021,11,20)
+const d5 = new Date(2021,11,21)
+const d6 = new Date(2021,11,22)
+const d7 = new Date(2021,11,23)
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Bar Graph - # of Hours",
+		fontFamily: "arial black",
+		fontColor: "#695A42"
+	},
+	axisX: {
+		interval: 1,
+		intervalType: "day"
+	},
+	axisY:{
+		valueFormatString:"#0 hr",
+		gridColor: "#B6B1A8",
+		tickColor: "#B6B1A8"
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipContent
+	},
+	data: [{
+		type: "stackedColumn",
+		showInLegend: true,
+		color: Color1,
+		name: "Task 1",
+		dataPoints: [
+			{ y: 1.75, x: d1 },
+			{ y: 1.57, x: d2 },
+			{ y: 0.64, x: d3 },
+			{ y: 1.97, x: d4 },
+			{ y: 1.42, x: d5 },
+			{ y: 1.26, x: d6 },
+			{ y: 0.26, x: d7 }
+		]
+		},
+		{        
+			type: "stackedColumn",
+			showInLegend: true,
+			name: "Task 2",
+			color: Color2,
+			dataPoints: [
+				{ y: 1.82, x: d1 },
+				{ y: 1.02, x: d2 },
+				{ y: 1.80, x: d3 },
+				{ y: 1.11, x: d4 },
+				{ y: 1.96, x: d5 },
+				{ y: 1.73, x: d6 },
+				{ y: 1.5, x: d7 }
+			]
+		},
+		{        
+			type: "stackedColumn",
+			showInLegend: true,
+			name: "Task 3",
+			color: Color3,
+			dataPoints: [
+				{ y: 1.28, x: d1 },
+				{ y: 1.72, x: d2 },
+				{ y: 1.30, x: d3 },
+				{ y: 1.90, x: d4 },
+				{ y: 1.10, x: d5 },
+				{ y: 1.68, x: d6 },
+				{ y: 1.45, x: d7 }
+			]
+		},
+        {        
+			type: "stackedColumn",
+			showInLegend: true,
+			name: "Task 4",
+			color: Color4,
+			dataPoints: [
+				{ y: 1.28, x: d1 },
+				{ y: 1.72, x: d2 },
+				{ y: 1.30, x: d3 },
+				{ y: 1.90, x: d4 },
+				{ y: 1.10, x: d5 },
+				{ y: 1.68, x: d6 },
+				{ y: 1.45, x: d7 }
+			]
+		},
+        {        
+			type: "stackedColumn",
+			showInLegend: true,
+			name: "Task 5",
+			color: Color5,
+			dataPoints: [
+				{ y: 1.28, x: d1 },
+				{ y: 1.72, x: d2 },
+				{ y: 1.30, x: d3 },
+				{ y: 1.9, x: d4 },
+				{ y: 1.10, x: d5 },
+				{ y: 1.68, x: d6 },
+				{ y: 1.45, x: d7 }
+			]
+		},
+		{        
+			type: "stackedColumn",
+			showInLegend: true,
+			name: "Task 6",
+			color: Color6,
+			dataPoints: [
+				{ y: 1.44, x: d1 },
+				{ y: 0.58, x: d2 },
+				{ y: 1.41, x: d3 },
+				{ y: 1.86, x: d4 },
+				{ y: 0.64, x: d5 },
+				{ y: 1.32, x: d6 },
+				{ y: 1.06, x: d7 }
+			]
+	}]
+});
+chart.render();
+
+function toolTipContent(e) {
+	var str = "";
+	var total = 0;
+	var str2, str3;
+	for (var i = 0; i < e.entries.length; i++){
+		var  str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\"> "+e.entries[i].dataSeries.name+"</span>: <strong>"+e.entries[i].dataPoint.y+"</strong>hr<br/>";
+		total = e.entries[i].dataPoint.y + total;
+		str = str.concat(str1);
+	}
+	str2 = "<span style = \"color:DodgerBlue;\"><strong>"+(e.entries[0].dataPoint.x).getFullYear()+"</strong></span><br/>";
+	total = Math.round(total * 100) / 100;
+	str3 = "<span style = \"color:Black\">Total:</span><strong> "+total+"</strong>hr<br/>";
+	return (str2.concat(str)).concat(str3);
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 800px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
