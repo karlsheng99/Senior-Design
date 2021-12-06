@@ -63,7 +63,7 @@ class ColumnChart(TemplateView):
                         'task5': tasks[4], 'hour5': hours[4],
                         'task6': tasks[5], 'hour6': hours[5],
                         'task7': tasks[6], 'hour7': hours[6],
-                        'task8': tasks[7], 'hour8': hours[7]
+                        'task8': tasks[7], 'hour8': hours[7],
                         'd1': (datetime.datetime(2021, 12, 5).strftime('%x')),
                         'd2': (datetime.datetime(2021, 12, 6).strftime('%x')),
                         'd3': (datetime.datetime(2021, 12, 7).strftime('%x')),
