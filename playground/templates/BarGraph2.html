@@ -10,14 +10,19 @@
     function drawChart() {
 
 		var data = google.visualization.arrayToDataTable([
-        ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-         'Western', 'Literature', { role: 'annotation' } ],
-        ['2010', 10, 24, 20, 32, 18, 5, ''],
-        ['2020', 16, 22, 23, 30, 16, 9, ''],
-        ['2030', 28, 19, 29, 30, 12, 13, '']
+        ['Task', '{{task1}}', '{{task2}}', '{{task3}}', '{{task4}}','{{task5}}',{ role: 'annotation' } ],
+        ['{{d1}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+        ['{{d2}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+        ['{{d3}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+		['{{d4}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+		['{{d5}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+		['{{d6}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, ''],
+		['{{d7}}', {{hour1}}, {{hour2}}, {{hour3}}, {{hour4}}, {{hour5}}, '']
       ]);
 
+
       var options = {
+		title: "Weekly Bar Graph",
         width: 600,
         height: 400,
         legend: { position: 'top', maxLines: 3 },
@@ -25,7 +30,7 @@
         isStacked: true
       };
 
-      var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+      var chart = new google.visualization.ColmumnChart(document.getElementById('columnchart'));
 
       chart.draw(data, options);
     }
@@ -33,7 +38,7 @@
 </head>
 
 <body>
-  <div id="barchart" style="width: 900px; height: 500px;"></div>
+  <div id="columnchart" style="width: 900px; height: 500px;"></div>
 </body>
 
 </html>

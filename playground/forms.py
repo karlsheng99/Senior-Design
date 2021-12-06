@@ -6,3 +6,6 @@ class TaskNamesForm(forms.Form):
     task3 = forms.CharField()
     task4 = forms.CharField()
     task5 = forms.CharField()
+    task6 = forms.CharField()
+    task7 = forms.CharField()
+    task8 = forms.CharField()
