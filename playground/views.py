@@ -56,21 +56,21 @@ class ColumnChart(TemplateView):
         tasks, hours = readfile.readfile('playground/files/test.csv')
 
         return render(request, self.template_name,
-                      { 'task1': tasks[0], #'hour1': hours[0],
-                        'task2': tasks[1], #'hour2': hours[1],
-                        'task3': tasks[2], #'hour3': hours[2],
-                        'task4': tasks[3], #'hour4': hours[3],
-                        'task5': tasks[4], #'hour5': hours[4],
-                        'task6': tasks[5], #'hour6': hours[5],
-                        'task7': tasks[6], #'hour7': hours[6],
-                        'task8': tasks[7] #'hour8': hours[7]
-                        #'d1': (datetime.datetime(2021, 12, 5).strftime('%x')),
-                        #'d2': (datetime.datetime(2021, 12, 6).strftime('%x')),
-                        #'d3': (datetime.datetime(2021, 12, 7).strftime('%x')),
-                        #'d4': (datetime.datetime(2021, 12, 8).strftime('%x')),
-                        #'d5': (datetime.datetime(2021, 12, 9).strftime('%x')),
-                        #'d6': (datetime.datetime(2021, 12, 10).strftime('%x')),
-                        #'d7': (datetime.datetime(2021, 12, 11).strftime('%x'))
+                      { 'task1': tasks[0], 'hour1': hours[0],
+                        'task2': tasks[1], 'hour2': hours[1],
+                        'task3': tasks[2], 'hour3': hours[2],
+                        'task4': tasks[3], 'hour4': hours[3],
+                        'task5': tasks[4], 'hour5': hours[4],
+                        'task6': tasks[5], 'hour6': hours[5],
+                        'task7': tasks[6], 'hour7': hours[6],
+                        'task8': tasks[7], 'hour8': hours[7]
+                        'd1': (datetime.datetime(2021, 12, 5).strftime('%x')),
+                        'd2': (datetime.datetime(2021, 12, 6).strftime('%x')),
+                        'd3': (datetime.datetime(2021, 12, 7).strftime('%x')),
+                        'd4': (datetime.datetime(2021, 12, 8).strftime('%x')),
+                        'd5': (datetime.datetime(2021, 12, 9).strftime('%x')),
+                        'd6': (datetime.datetime(2021, 12, 10).strftime('%x')),
+                        'd7': (datetime.datetime(2021, 12, 11).strftime('%x'))
                         })
                        
 
