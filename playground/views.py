@@ -71,13 +71,13 @@ class BarGraph2(TemplateView):
                         'task6': tasks[5], 'hour6': hours[5],
                         'task7': tasks[6], 'hour7': hours[6],
                         'task8': tasks[7], 'hour8': hours[7]},
-                        'd1' : '12.05.2021',
-                        'd2' : '12.06.2021',
-                        'd3' : '12.07.2021',
-                        'd4' : '12.08.2021',
-                        'd5' : '12.09.2021',
-                        'd6' : '12.10.2021',
-                        'd7' : '12.11.2021')
+                        'd1' : new Date(2021,11,17),
+                        'd2' : new Date(2021,11,17),
+                        'd3' : new Date(2021,11,17),
+                        'd4' : new Date(2021,11,17),
+                        'd5' : new Date(2021,11,17),
+                        'd6' : new Date(2021,11,17),
+                        'd7' : new Date(2021,11,17))
                        
 
 
