@@ -24,7 +24,7 @@ SECRET_KEY = '9pveu_#w9cc!=$o6!l1%0bhfe#$fl-&ed^cb78nw8e!d2u_#ms'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', '155.246.114.35', 'taskeytop', 'tasktopthree', 'iraklipi', '192.168.0.236', '155.246.229.69', '155.246.229.61', '192.168.1.203', '127.0.0.1', 'localhost', 'loca/ltest.me']
+ALLOWED_HOSTS = ['127.0.0.1', '155.246.114.35', '192.168.0.236', '155.246.229.69', '155.246.229.61', '192.168.1.203', '127.0.0.1', 'localhost', 'loca/ltest.me']
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

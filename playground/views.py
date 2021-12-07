@@ -6,6 +6,11 @@ import datetime
 
 csv_path = 'playground/files/test.csv'
 
+class Home(TemplateView):
+    template_name = 'Home.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 class DailySummary(TemplateView):
     template_name = 'daily_summary.html'
