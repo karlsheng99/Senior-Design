@@ -3,6 +3,7 @@ import encoder
 import RGB1602
 import lcd
 import time
+from playground import readfile, writefile
 
 # encoder pins
 p1 = 13
@@ -20,18 +21,22 @@ GPIO.setup(p3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(p4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(b1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-colors = [(148,0,110),
-          (255,0,255),
-          (144,249,15),
-          (0,128,60),
-          (255,209,0),
-          (248,248,60),
-          (80,80,145),
-          (255,0,0)]
+colors = [(80, 91, 199),
+          (188, 66, 39),
+          (228, 159, 51),
+          (84, 153, 42),
+          (132, 0, 150),
+          (92, 148, 195),
+          (191, 71, 120),
+          (124, 174, 40)]
 
 lcd1602 = RGB1602.RGB1602(16, 2)
 
+# tasks, hours = readfile.readfile('playground/files/test.csv')
+
 while True:
+    tasks, hours = readfile.readfile('playground/files/test.csv')
+
     # rotary encoder position
     p1State = 1 - GPIO.input(p1)
     p2State = 1 - GPIO.input(p2)
@@ -40,7 +45,9 @@ while True:
     
     binary, position = encoder.readPosition(p1State, p2State, p3State, p4State)
     
-    task_name = 'task' + str(position) + ' ' + str(binary)
+    # task_name = 'task' + str(position) + ' ' + str(binary)
+    task_name = tasks[position]
+
     color = colors[position]
 
     lcd.display(lcd1602, task_name, 'Press the button',color)
@@ -84,5 +91,7 @@ while True:
                 lcd.display(lcd1602, task_name, timer, color)
             
             time.sleep(0.15)
+        hour = current_time - start_time
+        writefile.update_hour('playground/files/test.csv', position, hour)
     time.sleep(0.15)
 
