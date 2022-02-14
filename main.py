@@ -91,7 +91,9 @@ while True:
 
             if timerState == True:
                 current_time = datetime.now()
-                timer = lcd.print_time(current_time - start_time)
+                #timer = lcd.print_time(current_time - start_time)
+                timer = current_time - start_time
+                timer_disp = round(timer.total_seconds(), 1)
                 lcd.display(lcd1602, task_name, timer, color)
             
             time.sleep(0.15)
