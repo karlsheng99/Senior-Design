@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["timeline"]});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+          var container = document.getElementById('timeline');
+          var chart = new google.visualization.Timeline(container);
+          var dataTable = new google.visualization.DataTable();
+      
+          dataTable.addColumn({ type: 'string', id: 'Task' });
+          dataTable.addColumn({ type: 'date', id: 'Start' });
+          dataTable.addColumn({ type: 'date', id: 'End' });
+          dataTable.addRows([
+            [ '1', new Date(0, 0, 0, 11,07,21), new Date(0, 0, 0, 11,07,25) ],
+            [ '2', new Date(0, 0, 0, 12,08,21), new Date(0, 0, 0, 12,09,25)],
+            ['1', new Date(0, 0, 0, 11,10,21), new Date(0, 0, 0, 11,11,25)]
+            ]);
+      
+          var options = {
+            timeline: { groupByRowLabel: true }
+          };
+      
+          chart.draw(dataTable, options);
+        }
+      </script>
+</head>
+
 <body style="text-align: center;">
 
     <h1 style="color: green;">Tasktop Home</h1>
@@ -6,4 +38,6 @@
     <button><a href="/playground/columnchart/">Weekly Summary</a></button>
     <button><a href="/playground/settings/">Settings</a></button>
 
+    <div id="timeline" style="height: 200px;"></div>
 </body>
+</html>
