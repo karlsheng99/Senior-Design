@@ -4,7 +4,8 @@ from . import forms
 from . import readfile, writefile
 import datetime
 
-csv_path = 'playground/files/test.csv'
+#csv_path = 'playground/files/test.csv'
+stats_path = '/home/pi/TasktopFiles/stats.csv'
 
 class Home(TemplateView):
     template_name = 'Home.html'
@@ -16,7 +17,7 @@ class DailySummary(TemplateView):
     template_name = 'daily_summary.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile(csv_path)
+        tasks, hours = readfile.readfile(stats_path)
         return render(request, self.template_name,
                       {'task1': tasks[0], 'hour1': hours[0],
                        'task2': tasks[1], 'hour2': hours[1],
@@ -111,6 +112,6 @@ class Settings(TemplateView):
             task_names.append(form.cleaned_data['task7'])
             task_names.append(form.cleaned_data['task8'])
 
-        writefile.update_task_names(csv_path, task_names)
+        writefile.update_task_names(stats_path, task_names)
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Task Names Applied'})
