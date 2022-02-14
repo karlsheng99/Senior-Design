@@ -64,8 +64,8 @@ while True:
         timerState = False
         start_time = datetime.now()
         current_time = datetime.now()
-        pause_time = datetime.now()
-        pause = False
+        # pause_time = datetime.now()
+        # pause = False
         
         while new_position == position:
             # rotary encoder position
@@ -80,14 +80,16 @@ while True:
 
             if buttonState == False and timerState == False:
                 timerState = True
-                if pause == True:
-                    start_time += datetime.now() - pause_time
-                else:
-                    start_time = datetime.now()
+                # if pause == True:
+                #     start_time += datetime.now() - pause_time
+                # else:
+                #     start_time = datetime.now()
+                start_time = datetime.now()
             elif buttonState == False and timerState == True:
                 timerState = False
-                pause = True
-                pause_time = datetime.now()
+                # pause = True
+                # pause_time = datetime.now()
+                current_time = datetime.now()
 
             if timerState == True:
                 current_time = datetime.now()
@@ -99,6 +101,7 @@ while True:
             time.sleep(0.15)
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
-        writefile.update_hour(stats_path, position, hour_sec)
+        writefile.update_timestamps(timestamps_path, position, start_time, current_time)
+        writefile.update_stats(stats_path, position, hour_sec)
     time.sleep(0.15)
 
