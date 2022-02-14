@@ -93,11 +93,12 @@ while True:
                 current_time = datetime.now()
                 #timer = lcd.print_time(current_time - start_time)
                 timer = current_time - start_time
-                timer_disp = lcd.print_time(timer.total_seconds())
-                lcd.display(lcd1602, task_name, timer_disp, color)
+                timer_sec = lcd.print_time(timer.total_seconds())
+                lcd.display(lcd1602, task_name, timer_sec, color)
             
             time.sleep(0.15)
         hour = current_time - start_time
+        hour_sec = hour.total_seconds()
         writefile.update_hour(stats_path, position, hour)
     time.sleep(0.15)
 
