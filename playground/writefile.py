@@ -26,5 +26,5 @@ def update_timestamps(file_path, task, start, end):
             start.year, start.month, start.day, start.hour, start.minute, round(start.second, 1),
             end.year, end.month, end.day, end.hour, end.minute, round(end.second, 1)]
     
-    csvwriter = csv.writer(open(file_path, 'w'))
+    csvwriter = csv.writer(open(file_path, 'a'))
     csvwriter.writerow(line)
