@@ -90,6 +90,7 @@ while True:
                 # pause = True
                 # pause_time = datetime.now()
                 current_time = datetime.now()
+                break
 
             if timerState == True:
                 current_time = datetime.now()
