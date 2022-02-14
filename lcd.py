@@ -8,7 +8,7 @@ def display(lcd, row1, row2, color):
     lcd.printout(row2)
     lcd.setRGB(color[0], color[1], color[2])
     
-# this function is not used    
+      
 def print_time(time):
     m, s = divmod(time, 60)
     h, m = divmod(m, 60)
