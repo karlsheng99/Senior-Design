@@ -99,6 +99,6 @@ while True:
             time.sleep(0.15)
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
-        writefile.update_hour(stats_path, position, hour)
+        writefile.update_hour(stats_path, position, hour_sec)
     time.sleep(0.15)
 
