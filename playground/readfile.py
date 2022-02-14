@@ -1,7 +1,7 @@
 import csv
 
 def readfile(file_path):
-        file = open(file_path)
+        file = open('../' + file_path)
         csvreader = csv.reader(file)
         header = next(csvreader)
 
