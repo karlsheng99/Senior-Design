@@ -6,8 +6,8 @@ import time
 from datetime import datetime
 from playground import readfile, writefile
 
-timestamps_path = '../TasktopFiles/timestamps.csv'
-stats_path = '../TasktopFiles/stats.csv'
+timestamps_path = 'home/pi/TasktopFiles/timestamps.csv'
+stats_path = 'home/pi/TasktopFiles/stats.csv'
 
 # encoder pins
 p1 = 13
