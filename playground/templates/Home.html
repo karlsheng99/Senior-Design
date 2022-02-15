@@ -16,9 +16,11 @@
           dataTable.addColumn({ type: 'date', id: 'Start' });
           dataTable.addColumn({ type: 'date', id: 'End' });
           dataTable.addRows([
-            [ '1', new Date(0, 0, 0, 11,07,21), new Date(0, 0, 0, 11,07,25) ],
-            [ '2', new Date(0, 0, 0, 12,08,21), new Date(0, 0, 0, 12,09,25)],
-            ['1', new Date(0, 0, 0, 11,10,21), new Date(0, 0, 0, 11,11,25)]
+            [ 'Task1', new Date(2022, 2, 14, 8,07,21), new Date(2022, 2, 14, 8,15,25) ],
+            [ 'Task2', new Date(2022, 2, 14, 9,17,55), new Date(2022, 2, 14, 9,22,45) ],
+            [ 'Task1', new Date(2022, 2, 14, 9,10,21), new Date(2022, 2, 14, 9,17,26) ],
+            [ 'Task3', new Date(2022, 2, 14, 11,10,35), new Date(2022, 2, 14, 11,50,48) ],
+            [ 'Task7', new Date(2022, 2, 14, 12,10,21), new Date(2022, 2, 14, 13,01,12) ],
             ]);
       
           var options = {
@@ -37,7 +39,8 @@
     <button><a href="/playground/daily_summary/">Daily Summary</a></button>
     <button><a href="/playground/columnchart/">Weekly Summary</a></button>
     <button><a href="/playground/settings/">Settings</a></button>
-    <br /> 
+    <br>
+    <br>
     <div id="timeline" style="height: 200px;"></div>
 </body>
 </html>
