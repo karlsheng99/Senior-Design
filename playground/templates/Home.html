@@ -16,11 +16,11 @@
           dataTable.addColumn({ type: 'date', id: 'Start' });
           dataTable.addColumn({ type: 'date', id: 'End' });
           dataTable.addRows([
-            [ 'Task1', new Date(2022, 2, 14, 8,07,21), new Date(2022, 2, 14, 8,15,25) ],
-            [ 'Task2', new Date(2022, 2, 14, 9,17,55), new Date(2022, 2, 14, 9,22,45) ],
-            [ 'Task1', new Date(2022, 2, 14, 9,10,21), new Date(2022, 2, 14, 9,17,26) ],
-            [ 'Task3', new Date(2022, 2, 14, 11,10,35), new Date(2022, 2, 14, 11,50,48) ],
-            [ 'Task7', new Date(2022, 2, 14, 12,10,21), new Date(2022, 2, 14, 13,01,12) ],
+            [ 'Email', new Date(2022, 2, 14, 8,07,21), new Date(2022, 2, 14, 8,15,25) ],
+            [ 'Coffee', new Date(2022, 2, 14, 9,17,55), new Date(2022, 2, 14, 9,22,45) ],
+            [ 'Email', new Date(2022, 2, 14, 9,10,21), new Date(2022, 2, 14, 9,30,26) ],
+            [ 'Meeting', new Date(2022, 2, 14, 11,10,35), new Date(2022, 2, 14, 11,50,48) ],
+            [ 'Lunch', new Date(2022, 2, 14, 12,10,21), new Date(2022, 2, 14, 13,01,12) ],
             ]);
       
           var options = {
@@ -41,6 +41,6 @@
     <button><a href="/playground/settings/">Settings</a></button>
     <br>
     <br>
-    <div id="timeline" style="height: 200px;"></div>
+    <div id="timeline"></div>
 </body>
 </html>
