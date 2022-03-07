@@ -3,15 +3,19 @@ from django.shortcuts import render
 from . import forms
 from . import readfile, writefile
 import datetime
+import json
 
 #csv_path = 'playground/files/test.csv'
 stats_path = '/home/pi/TasktopFiles/stats.csv'
+timestamps_path = '/home/pi/TasktopFiles/timestamps.json'
 
 class Home(TemplateView):
     template_name = 'Home.html'
-
+    
     def get(self, request):
-        return render(request, self.template_name)
+        json_data = json.load(open(timestamps_path))
+        
+        return render(request, self.template_name, {'djangoData': json_data})
 
 class DailySummary(TemplateView):
     template_name = 'daily_summary.html'

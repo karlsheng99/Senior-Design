@@ -24,14 +24,16 @@
             [ 'Meeting', new Date(2022, 2, 14, 11,10,35), new Date(2022, 2, 14, 11,50,48) ],
             [ 'Lunch', new Date(2022, 2, 14, 12,10,21), new Date(2022, 2, 14, 13,01,12) ],
             ]);
-          */
+          
 
           var jsonData = $.ajax({
             url: "file://home/pi/Senior-Design/playground/templates/getData2.php",
             dataType: "json",
             async: false
           }).responseText;
+          */
 
+          var json_data = {{ django_data }};
           var dataTable = new google.visualization.DataTable(jsonData);
 
           var options = {
