@@ -1,6 +1,6 @@
 <?php
 
-$string = file_get_contents("file://home/pi/TasktopFiles/test.json");
+$string = file_get_contents('/home/pi/TasktopFiles/timestamps.json', true);
 echo $string;
 
 ?>
