@@ -32,7 +32,7 @@
             async: false
           }).responseText;
 
-          var dataTable = new google.visualization.DataTable(jsonData);
+          var dataTable = new google.visualization.arrayToDataTable(jsonData);
 
           var options = {
             timeline: { groupByRowLabel: true }
