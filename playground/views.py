@@ -14,8 +14,8 @@ class Home(TemplateView):
     
     def get(self, request):
         json_data = json.load(open(timestamps_path))
-        
-        return render(request, self.template_name, {'djangoData': json_data})
+        json_string = json.dumps(json_data)
+        return render(request, self.template_name, {'django_data': json_string})
 
 class DailySummary(TemplateView):
     template_name = 'daily_summary.html'

@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" href="#">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -12,8 +11,9 @@
         function drawChart() {
           var container = document.getElementById('timeline');
           var chart = new google.visualization.Timeline(container);
-          /*var dataTable = new google.visualization.DataTable();
+          var dataTable = new google.visualization.DataTable();
       
+          /*
           dataTable.addColumn({ type: 'string', id: 'Task' });
           dataTable.addColumn({ type: 'date', id: 'Start' });
           dataTable.addColumn({ type: 'date', id: 'End' });
@@ -33,11 +33,11 @@
           }).responseText;
           */
 
-          var json_data = JSON.parse('{{ django_data | escapejs }}');
-          var dataTable = new google.visualization.DataTable(json_data);
+          var json_data = {{ django_data }};
+          var dataTable = new google.visualization.DataTable(jsonData);
 
           var options = {
-              timeline: { groupByRowLabel: true }
+            timeline: { groupByRowLabel: true }
           };
       
           chart.draw(dataTable, options);
@@ -54,6 +54,6 @@
     <button><a href="/playground/settings/">Settings</a></button>
     <br>
     <br>
-    <div id="timeline" style="width: 1200px; height: 600px; margin: auto"></div>
+    <div id="timeline"></div>
 </body>
 </html>
