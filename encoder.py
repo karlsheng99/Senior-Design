@@ -12,6 +12,6 @@ def readPosition(p1State, p2State, p3State, p4State):
        
     # convert gray code to binary
     binary = gray2binary(gray)
-    position = binary // 2
+    position = binary
     
     return binary, position
