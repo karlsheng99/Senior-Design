@@ -47,9 +47,8 @@ while True:
     p3State = 1 - GPIO.input(p3)
     p4State = 1 - GPIO.input(p4)
     
-    binary, position = encoder.readPosition(p1State, p2State, p3State, p4State)
+    position = encoder.readPosition(p1State, p2State, p3State, p4State)
     
-    # task_name = 'task' + str(position) + ' ' + str(binary)
     task_name = tasks[position]
 
     color = colors[position]
@@ -74,7 +73,7 @@ while True:
             p3State = 1 - GPIO.input(p3)
             p4State = 1 - GPIO.input(p4)
             
-            new_binary, new_position = encoder.readPosition(p1State, p2State, p3State, p4State)
+            new_position = encoder.readPosition(p1State, p2State, p3State, p4State)
             
             buttonState = GPIO.input(b1)
 
