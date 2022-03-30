@@ -47,7 +47,7 @@ while True:
     p3State = 1 - GPIO.input(p3)
     p4State = 1 - GPIO.input(p4)
     
-    position = encoder.readPosition(p1State, p2State, p3State, p4State)
+    position = encoder.read8Position(p1State, p2State, p3State, p4State)
     
     task_name = tasks[position]
 
@@ -73,7 +73,7 @@ while True:
             p3State = 1 - GPIO.input(p3)
             p4State = 1 - GPIO.input(p4)
             
-            new_position = encoder.readPosition(p1State, p2State, p3State, p4State)
+            new_position = encoder.read8Position(p1State, p2State, p3State, p4State)
             
             buttonState = GPIO.input(b1)
 
