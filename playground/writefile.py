@@ -36,9 +36,9 @@ def update_timestamps_json(file_path, task_name, start, end):
     end_date = "Date(" + str(end.year) + "," + str(end.month) + "," + str(end.day) + "," + str(end.hour) + "," + str(end.minute) + "," + str(round(end.second)) + ")"
     
     new_data = {"c":[
-        {"v": task_name, "f": NULL},
-        {"v": start_date, "f": NULL},
-        {"v": end_date, "f": NULL}
+        {"v": task_name, "f": None},
+        {"v": start_date, "f": None},
+        {"v": end_date, "f": None}
     ]}
     
     with open(file_path, 'r+') as file:
