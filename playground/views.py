@@ -1,14 +1,20 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
+from pathlib import Path
 from . import forms
 from . import readfile, writefile
-from .. import main
 import datetime
 import json
 
-stats_template_path = '/home/pi/TasktopFiles/stats_template.csv'
-stats_path = main.stats_path
-timestamps_path = main.timestamps_json_path
+today = str(datetime.date(datetime.now()))
+file_path = '/home/pi/TasktopFiles/' + today + '/'
+
+stats_path = file_path + 'stats.csv'
+timestamps_path = file_path + 'timestamps.json'
+
+if not Path(file_path).exists():
+    Path(file_path).mkdir()
+    writefile.create_files(stats_path, timestamps_path)
 
 class Home(TemplateView):
     template_name = 'Home.html'
