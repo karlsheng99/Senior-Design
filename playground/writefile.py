@@ -1,5 +1,6 @@
 import csv
 import json
+import shutil
 
 def update_task_names(file_path, task_names):
     csvreader = csv.reader(open(file_path))
@@ -47,3 +48,8 @@ def update_timestamps_json(file_path, task_name, start, end):
 
         file.seek(0)
         json.dump(file_data, file, indent=4)
+
+
+def create_files(stats_path, timestamps_path):
+    shutil.copy('/home/pi/TasktopFiles/stats_template.csv', stats_path)
+    shutil.copy('/home/pi/TasktopFiles/timestamps_template.json', timestamps_path)

@@ -1,4 +1,5 @@
 from os import times
+from pathlib import Path
 import RPi.GPIO as GPIO
 import encoder
 import RGB1602
@@ -6,10 +7,6 @@ import lcd
 import time
 from datetime import datetime
 from playground import readfile, writefile
-
-timestamps_csv_path = '/home/pi/TasktopFiles/timestamps.csv'
-timestamps_json_path = '/home/pi/TasktopFiles/timestamps.json'
-stats_path = '/home/pi/TasktopFiles/stats.csv'
 
 # encoder pins
 p1 = 13
@@ -39,6 +36,20 @@ colors = [(80, 91, 199),
 lcd1602 = RGB1602.RGB1602(16, 2)
 
 # tasks, hours = readfile.readfile('playground/files/test.csv')
+
+# If you turn on the device for the first time of the day，
+# it will create a folder and files that contain the time data for you.
+today = str(datetime.date(datetime.now()))
+file_path = '/home/pi/TasktopFiles/' + today + '/'
+
+timestamps_csv_path = '/home/pi/TasktopFiles/timestamps.csv'
+stats_path = file_path + 'stats.csv'
+timestamps_json_path = file_path + 'timestamps.json'
+
+if not Path(file_path).exists():
+    Path(file_path).mkdir()
+    writefile.create_files(stats_path, timestamps_json_path)
+
 
 while True:
     tasks, hours = readfile.readfile(stats_path)

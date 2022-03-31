@@ -2,12 +2,13 @@ from django.views.generic import TemplateView
 from django.shortcuts import render
 from . import forms
 from . import readfile, writefile
+from .. import main
 import datetime
 import json
 
-#csv_path = 'playground/files/test.csv'
-stats_path = '/home/pi/TasktopFiles/stats.csv'
-timestamps_path = '/home/pi/TasktopFiles/timestamps.json'
+stats_template_path = '/home/pi/TasktopFiles/stats_template.csv'
+stats_path = main.stats_path
+timestamps_path = main.timestamps_json_path
 
 class Home(TemplateView):
     template_name = 'Home.html'
@@ -117,5 +118,6 @@ class Settings(TemplateView):
             task_names.append(form.cleaned_data['task8'])
 
         writefile.update_task_names(stats_path, task_names)
+        writefile.update_task_names(stats_template_path, task_names)
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Task Names Applied'})
