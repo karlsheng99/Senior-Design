@@ -9,6 +9,7 @@ import json
 today = str(datetime.date(datetime.now()))
 file_path = '/home/pi/TasktopFiles/' + today + '/'
 
+stats_template_path = '/home/pi/TasktopFiles/stats_template.csv'
 stats_path = file_path + 'stats.csv'
 timestamps_path = file_path + 'timestamps.json'
 
@@ -45,7 +46,7 @@ class BarGraph(TemplateView):
     template_name = 'BarGraph.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile('playground/files/test.csv')
+        tasks, hours = readfile.readfile(stats_path)
         initial_data = {'task1': tasks[0], 'hour1': hours[0],
                         'task2': tasks[1], 'hour2': hours[1],
                         'task3': tasks[2], 'hour3': hours[2],
@@ -70,7 +71,7 @@ class ColumnChart(TemplateView):
     template_name = 'ColumnChart.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile('playground/files/test.csv')
+        tasks, hours = readfile.readfile(stats_path)
 
         return render(request, self.template_name,
                       { 'task1': tasks[0], 'hour1': hours[0],
@@ -96,7 +97,7 @@ class Settings(TemplateView):
     template_name = 'settings.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile('playground/files/test.csv')
+        tasks, hours = readfile.readfile(stats_path)
         initial_data = {'task1': tasks[0],
                         'task2': tasks[1],
                         'task3': tasks[2],
