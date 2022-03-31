@@ -3,7 +3,7 @@ from django.shortcuts import render
 from pathlib import Path
 from . import forms
 from . import readfile, writefile
-import datetime
+from datetime import datetime
 import json
 
 today = str(datetime.date(datetime.now()))
