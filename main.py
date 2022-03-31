@@ -1,3 +1,4 @@
+from os import times
 import RPi.GPIO as GPIO
 import encoder
 import RGB1602
@@ -6,7 +7,8 @@ import time
 from datetime import datetime
 from playground import readfile, writefile
 
-timestamps_path = '/home/pi/TasktopFiles/timestamps.csv'
+timestamps_csv_path = '/home/pi/TasktopFiles/timestamps.csv'
+timestamps_json_path = '/home/pi/TasktopFiles/timestamps.json'
 stats_path = '/home/pi/TasktopFiles/stats.csv'
 
 # encoder pins
@@ -101,7 +103,8 @@ while True:
             time.sleep(0.15)
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
-        writefile.update_timestamps(timestamps_path, position, start_time, current_time)
+        writefile.update_timestamps_csv(timestamps_csv_path, position, start_time, current_time)
+        writefile.update_timestamps_json(timestamps_json_path, task_name, start_time, current_time)
         writefile.update_stats(stats_path, position, hour_sec)
     time.sleep(0.15)
 
