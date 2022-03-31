@@ -12,7 +12,7 @@ def display(lcd, row1, row2, color):
 def print_time(time):
     m, s = divmod(time, 60)
     h, m = divmod(m, 60)
-    s = round(s, 1)
+    s = round(s)
     
     ss = str(s)
     mm = str(int(m))
