@@ -12,7 +12,7 @@
 
 	<h3>{{instruction}}</h3>
 	<form class="" action="" method="post">
-		{% comment %} {% csrf_token %} {% endcomment %}
+		{% csrf_token %}
 		{{form.as_p}}
 		<!--
 	  <input type="text" name="array[]" value="{{task1}}" /><br>
