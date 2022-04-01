@@ -27,6 +27,8 @@ DEBUG = True
 # ALLOWED_HOSTS = ['192.168.79.179', '192.168.0.102', '192.168.137.114', '192.168.0.235', 'localhost', 'loca/ltest.me']
 ALLOWED_HOSTS = ['*', 'tasktop']
 
+CSRF_TRUSTED_ORIGINS = ['https:///*.loca.lt','https://*.127.0.0.1']
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
