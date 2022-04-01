@@ -25,7 +25,7 @@ SECRET_KEY = '9pveu_#w9cc!=$o6!l1%0bhfe#$fl-&ed^cb78nw8e!d2u_#ms'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # ALLOWED_HOSTS = ['192.168.79.179', '192.168.0.102', '192.168.137.114', '192.168.0.235', 'localhost', 'loca/ltest.me']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'tasktop']
 
 # Application definition
 INSTALLED_APPS = [
