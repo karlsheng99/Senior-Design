@@ -7,7 +7,9 @@ def update_task_names(file_path, task_names):
     lines = list(csvreader)
 
     for i in range(len(task_names)):
-        lines[i+1][1] = task_names[i]
+        if lines[i+1][1] != task_names[i]:
+            lines[i+1][1] = task_names[i]
+            lines[i+1][2] = 0
 
     csvwriter = csv.writer(open(file_path, 'w'))
     csvwriter.writerows(lines)
