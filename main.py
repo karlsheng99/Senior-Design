@@ -33,11 +33,6 @@ colors = [(80, 91, 199),
           (191, 71, 120),
           (124, 174, 40)]
 
-colors_list = ['#3366CC', '#DC3912', '#FF9900', '#109618', '#990099',
-              '#3B3EAC', '#0099C6', '#DD4477', '#66AA00', '#B82E2E',
-              '#316395', '#994499', '#22AA99', '#AAAA11', '#6633CC',
-              '#E67300', '#8B0707', '#329262', '#5574A6', '#3B3EAC']
-
 task_list = []
 
 lcd1602 = RGB1602.RGB1602(16, 2)
@@ -59,7 +54,7 @@ if not Path(file_path).exists():
 
 
 while True:
-    tasks, hours = readfile.readfile(stats_path)
+    color_index, tasks, hours = readfile.readfile(stats_path)
 
     # rotary encoder position
     p1State = 1 - GPIO.input(p1)
@@ -121,8 +116,14 @@ while True:
             time.sleep(0.15)
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
+
+        if task_name not in task_list:
+            task_list.append(task_name)
+        order = task_list.index(task_name)
+
+        # add event into files
         writefile.update_timestamps_csv(timestamps_csv_path, position, start_time, current_time)
         writefile.update_timestamps_json(timestamps_json_path, task_name, start_time, current_time)
-        writefile.update_stats(stats_path, position, hour_sec)
+        writefile.update_stats(stats_path, position, order, hour_sec)
     time.sleep(0.15)
 

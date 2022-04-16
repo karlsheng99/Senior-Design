@@ -6,6 +6,13 @@ from . import readfile, writefile
 from datetime import datetime
 import json
 
+
+colors_list = ['#3366CC', '#DC3912', '#FF9900', '#109618', '#990099',
+              '#3B3EAC', '#0099C6', '#DD4477', '#66AA00', '#B82E2E',
+              '#316395', '#994499', '#22AA99', '#AAAA11', '#6633CC',
+              '#E67300', '#8B0707', '#329262', '#5574A6', '#3B3EAC']
+
+
 today = str(datetime.date(datetime.now()))
 file_path = '/home/pi/TasktopFiles/' + today + '/'
 
@@ -29,7 +36,15 @@ class DailySummary(TemplateView):
     template_name = 'daily_summary.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile(stats_path)
+        color_index, tasks, hours = readfile.readfile(stats_path)
+        
+        colors = '['
+        for i in range(8):
+            colors += '\'' + colors_list[color_index] + '\''
+            if i != 7:
+                colors += ', '
+        colors += ']'
+
         return render(request, self.template_name,
                       {'task1': tasks[0], 'hour1': hours[0],
                        'task2': tasks[1], 'hour2': hours[1],
@@ -38,7 +53,8 @@ class DailySummary(TemplateView):
                        'task5': tasks[4], 'hour5': hours[4],
                        'task6': tasks[5], 'hour6': hours[5],
                        'task7': tasks[6], 'hour7': hours[6],
-                       'task8': tasks[7], 'hour8': hours[7]})
+                       'task8': tasks[7], 'hour8': hours[7],
+                       'colors': colors})
 
 
 class BarGraph(TemplateView):
@@ -46,7 +62,7 @@ class BarGraph(TemplateView):
     template_name = 'BarGraph.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile(stats_path)
+        color_index, tasks, hours = readfile.readfile(stats_path)
         initial_data = {'task1': tasks[0], 'hour1': hours[0],
                         'task2': tasks[1], 'hour2': hours[1],
                         'task3': tasks[2], 'hour3': hours[2],
@@ -71,7 +87,7 @@ class ColumnChart(TemplateView):
     template_name = 'ColumnChart.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile(stats_path)
+        color_index, tasks, hours = readfile.readfile(stats_path)
 
         return render(request, self.template_name,
                       { 'task1': tasks[0], 'hour1': hours[0],
@@ -97,7 +113,7 @@ class Settings(TemplateView):
     template_name = 'settings.html'
 
     def get(self, request):
-        tasks, hours = readfile.readfile(stats_path)
+        color_index, tasks, hours = readfile.readfile(stats_path)
         initial_data = {'task1': tasks[0],
                         'task2': tasks[1],
                         'task3': tasks[2],

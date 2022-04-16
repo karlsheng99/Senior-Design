@@ -15,11 +15,18 @@ def update_task_names(file_path, task_names):
     csvwriter.writerows(lines)
 
 
-def update_stats(file_path, task, hour):
+def update_stats(file_path, task, order, hour):
     csvreader = csv.reader(open(file_path))
     lines = list(csvreader)
 
     lines[task+1][2] = str(float(lines[task+1][2]) + hour)
+
+    for i in range(8):
+        if lines[i+1][0] == str(order):
+            lines[i+1][0] = str(task + 1)
+            break
+
+    lines[task+1][0] = str(order)
     
     csvwriter = csv.writer(open(file_path, 'w'))
     csvwriter.writerows(lines)
