@@ -40,7 +40,7 @@ class DailySummary(TemplateView):
         
         colors = '['
         for i in range(8):
-            colors += '\'' + colors_list[color_index] + '\''
+            colors += '\'' + colors_list[color_index[i]] + '\''
             if i != 7:
                 colors += ', '
         colors += ']'
