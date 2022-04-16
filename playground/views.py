@@ -37,24 +37,17 @@ class DailySummary(TemplateView):
 
     def get(self, request):
         color_index, tasks, hours = readfile.readfile(stats_path)
-        
-        colors = '['
-        for i in range(8):
-            colors += '\'' + colors_list[color_index[i]] + '\''
-            if i != 7:
-                colors += ', '
-        colors += ']'
 
         return render(request, self.template_name,
-                      {'task1': tasks[0], 'hour1': hours[0],
-                       'task2': tasks[1], 'hour2': hours[1],
-                       'task3': tasks[2], 'hour3': hours[2],
-                       'task4': tasks[3], 'hour4': hours[3],
-                       'task5': tasks[4], 'hour5': hours[4],
-                       'task6': tasks[5], 'hour6': hours[5],
-                       'task7': tasks[6], 'hour7': hours[6],
-                       'task8': tasks[7], 'hour8': hours[7],
-                       'colors': colors})
+                      {'task1': tasks[0], 'hour1': hours[0], 'color1': colors_list[color_index[0]],
+                       'task2': tasks[1], 'hour2': hours[1], 'color2': colors_list[color_index[1]],
+                       'task3': tasks[2], 'hour3': hours[2], 'color3': colors_list[color_index[2]],
+                       'task4': tasks[3], 'hour4': hours[3], 'color4': colors_list[color_index[3]],
+                       'task5': tasks[4], 'hour5': hours[4], 'color5': colors_list[color_index[4]],
+                       'task6': tasks[5], 'hour6': hours[5], 'color6': colors_list[color_index[5]],
+                       'task7': tasks[6], 'hour7': hours[6], 'color7': colors_list[color_index[6]],
+                       'task8': tasks[7], 'hour8': hours[7], 'color8': colors_list[color_index[7]],
+                       })
 
 
 class BarGraph(TemplateView):
