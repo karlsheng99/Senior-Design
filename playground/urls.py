@@ -11,5 +11,5 @@ urlpatterns = [
     path('settings/', views.Settings.as_view()),
     path('bargraph/', views.BarGraph.as_view()),
     path('columnchart/', views.ColumnChart.as_view()),
-    #path('favicon.ico', favicon_view)
+    #url(r'^favicon.ico$', favicon_view)
 ]
