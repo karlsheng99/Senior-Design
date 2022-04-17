@@ -25,8 +25,10 @@ while True:
         time.sleep(1)
 
 b1 = 37
+b2 = 11
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(b1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(b2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 program_state = False
 main_pid = 0
@@ -35,6 +37,7 @@ lt_pid = 0
 
 while True:
     button_state = GPIO.input(b1)
+    signal_state = GPIO.input(b2)
 
     # run bash script
     if button_state == False and program_state == False:
@@ -56,5 +59,11 @@ while True:
         lcd.display(lcd1602, 'See You Later', '', (255,209,0))
         program_state = False
         time.sleep(0.5)
+
+    # send shutdown signal
+    elif program_state == False and signal_state == False:
+        lcd.display(lcd1602, 'Shutting Down', 'Bye Bye', (148,0,110))
+        subprocess.call(['sudo', 'shutdown', '-h', '0.1'])
+        exit()
     
     time.sleep(0.2)
