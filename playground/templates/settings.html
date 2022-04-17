@@ -14,7 +14,7 @@
 <body style="text-align: center;">
 
 	{% for msg in messages %}
-		<div class="alert alert-{{ message.tag }} m-2" id="msg" role="alert">
+		<div class="alert {{ message.tag }} m-2" id="msg" role="alert">
 			{{ msg }}
 		</div>
 	{% endfor %}
@@ -42,7 +42,7 @@
 			}
 		}, 5000)
 	</script>
-	
+
 </body>
 
 </html>
