@@ -38,9 +38,9 @@ while True:
 
     # run bash script
     if button_state == False and program_state == False:
-        main = subprocess.Popen(['python', 'main.py'])
+        main = subprocess.Popen(['python', 'home/pi/Senior-Design/main.py'])
         main_pid = main.pid
-        server = subprocess.Popen(['python', 'manage.py', 'runserver', '0:8000'])
+        server = subprocess.Popen(['python', 'home/pi/Senior-Design/manage.py', 'runserver', '0:8000'])
         server_pid = server.pid
         lt = subprocess.Popen(['lt', '-p', '8000', '-s', 'tasktop'])
         lt_pid = lt.pid
