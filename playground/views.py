@@ -102,6 +102,8 @@ class ColumnChart(TemplateView):
         table = []
 
         weekday = today.isoweekday()
+        if weekday == 7:
+            weekday = 0
 
         for i in range(7):
             table.append([])
