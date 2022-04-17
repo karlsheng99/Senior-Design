@@ -53,7 +53,7 @@ while True:
         os.kill(main_pid, signal.SIGTERM)
         os.kill(server_pid, signal.SIGTERM)
         os.kill(lt_pid, signal.SIGTERM)
-
+        lcd.display(lcd1602, 'See You Later', '', (255,209,0))
         program_state = False
         time.sleep(0.5)
     
