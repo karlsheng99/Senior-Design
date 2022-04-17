@@ -15,12 +15,7 @@
 	<h1 style="color: green;">Tasktop Settings</h1>
 
 	<h3>{{instruction}}</h3>
-	<br>
-	<br>
-	
-	{% include 'messages.html' %}
 
-	{% block content %} {% endblock %} 
 	<form class="" action="" method="post">
 		{% csrf_token %}
 		{{form.as_p}}
@@ -32,6 +27,10 @@
 	  <input type="text" name="array[]" value="{{task5}}" /><br>
 	  -->
 		<button type="submit" name="button" onclick="apply()">Apply</button>
+		<br>
+		{% include 'messages.html' %}
+
+		{% block content %} {% endblock %} 
 	</form>
 
 </body>
