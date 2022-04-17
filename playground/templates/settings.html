@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 
-	<button><a href="/home/">Home</a></button>
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +14,12 @@
 </head>
 
 <body style="text-align: center;"> 
+	{% include 'messages.html' %}
 
+	{% block content %} {% endblock %}
+	
+	<button><a href="/home/">Home</a></button>
+	
 	<h1 style="color: green;">Tasktop Settings</h1>
 
 	<h3>{{instruction}}</h3>
@@ -33,9 +36,7 @@
 	  -->
 		<button type="submit" name="button" onclick="apply()">Apply</button>
 		<br>
-		{% include 'messages.html' %}
-
-		{% block content %} {% endblock %} 
+ 
 	</form>
 
 </body>
