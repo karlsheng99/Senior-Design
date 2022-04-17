@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from pathlib import Path
 from . import forms
 from . import readfile, writefile
@@ -178,7 +178,9 @@ class Settings(TemplateView):
             task_names.append(form.cleaned_data['task7'])
             task_names.append(form.cleaned_data['task8'])
 
-        writefile.update_task_names(stats_path, task_names)
-        writefile.update_task_names(stats_template_path, task_names)
+            writefile.update_task_names(stats_path, task_names)
+            writefile.update_task_names(stats_template_path, task_names)
+
+            return redirect('/playground/settings/')
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Task Names Applied'})
