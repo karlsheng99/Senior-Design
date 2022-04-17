@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from pathlib import Path
 from . import forms
 from . import readfile, writefile
@@ -162,13 +163,8 @@ class Settings(TemplateView):
                         'task8': tasks[7]}
 
         form = forms.TaskNamesForm(initial=initial_data)
-
-        instruction = request.session.get('instruction')
-        if instruction == '':
-            instruction = 'Input Task Names'
-            
         return render(request, self.template_name,
-                      {'form': form, 'instruction': instruction})
+                      {'form': form, 'instruction': 'Input Task Names'})
 
     def post(self, request):
         form = forms.TaskNamesForm(request.POST)
@@ -185,9 +181,8 @@ class Settings(TemplateView):
 
             writefile.update_task_names(stats_path, task_names)
             writefile.update_task_names(stats_template_path, task_names)
-
-            request.session['instruction'] = 'Task Names Applied'
-
+            
+            messages.success(request, 'Task Names Applied!')
             return redirect('/playground/settings/')
         return render(request, self.template_name,
                       {'form': form, 'instruction': 'Update Failed'})
