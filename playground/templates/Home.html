@@ -38,7 +38,8 @@
           var dataTable = new google.visualization.DataTable(json_data);
 
           var options = {
-              timeline: { groupByRowLabel: true }
+              timeline: { groupByRowLabel: true },
+              colors: {{colors_list | safe}}
           };
       
           chart.draw(dataTable, options);
