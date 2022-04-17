@@ -5,7 +5,7 @@ import RGB1602
 import lcd
 import subprocess
 import time
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import os
 import signal
 
@@ -52,5 +52,5 @@ while True:
         os.kill(main_pid, signal.SIGTERM)
         os.kill(server_pid, signal.SIGTERM)
         os.kill(lt_pid, signal.SIGTERM)
-        
+
         program_state = False
