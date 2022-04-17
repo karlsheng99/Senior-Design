@@ -46,6 +46,7 @@ while True:
         lt_pid = lt.pid
 
         program_state = True
+        time.sleep(0.5)
 
     # send interrupt signal
     elif button_state == False and program_state == True:
@@ -54,3 +55,6 @@ while True:
         os.kill(lt_pid, signal.SIGTERM)
 
         program_state = False
+        time.sleep(0.5)
+    
+    time.sleep(0.2)
