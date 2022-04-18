@@ -41,6 +41,8 @@ while True:
 
     # run bash script
     if button_state == False and program_state == False:
+        lcd.display(lcd1602, 'Loading', '', (255,209,0))
+        
         main = subprocess.Popen(['python', 'home/pi/Senior-Design/main.py'])
         main_pid = main.pid
         server = subprocess.Popen(['python', 'home/pi/Senior-Design/manage.py', 'runserver', '0:8000'])
