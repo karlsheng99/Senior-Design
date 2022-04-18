@@ -63,8 +63,7 @@ while True:
     # send shutdown signal
     elif program_state == False and signal_state == False:
         lcd.display(lcd1602, 'Shutting Down', 'Bye Bye', (148,0,110))
-        break
+        subprocess.call(['sudo', 'shutdown', '-h', '+1'])
+        exit()
     
     time.sleep(0.2)
-
-subprocess.call(['sudo', 'shutdown', '-h', 'now'])
