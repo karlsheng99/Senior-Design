@@ -36,6 +36,7 @@ server_pid = 0
 lt_pid = 0
 
 ip = str(subprocess.check_output(['hostname', '-I']))
+ip = ip[2:].split(' ')[0]
 
 while True:
     button_state = GPIO.input(b1)
