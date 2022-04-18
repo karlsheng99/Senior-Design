@@ -35,13 +35,15 @@ main_pid = 0
 server_pid = 0
 lt_pid = 0
 
+ip = str(subprocess.check_output(['hostname', '-I']))
+
 while True:
     button_state = GPIO.input(b1)
     signal_state = GPIO.input(b2)
 
     # run bash script
     if button_state == False and program_state == False:
-        lcd.display(lcd1602, 'Loading', '', (255,209,0))
+        lcd.display(lcd1602, 'Loading', ip, (255,209,0))
         
         main = subprocess.Popen(['python', 'home/pi/Senior-Design/main.py'])
         main_pid = main.pid
