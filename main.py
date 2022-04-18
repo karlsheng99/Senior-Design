@@ -33,8 +33,6 @@ colors = [(80, 91, 199),
           (191, 71, 120),
           (124, 174, 40)]
 
-task_list = []
-
 lcd1602 = RGB1602.RGB1602(16, 2)
 
 # tasks, hours = readfile.readfile('playground/files/test.csv')
@@ -47,10 +45,11 @@ file_path = '/home/pi/TasktopFiles/' + today + '/'
 timestamps_csv_path = '/home/pi/TasktopFiles/timestamps.csv'
 stats_path = file_path + 'stats.csv'
 timestamps_json_path = file_path + 'timestamps.json'
+tasklist_path = file_path + 'tasklist.csv'
 
 if not Path(file_path).exists():
     Path(file_path).mkdir()
-    writefile.create_files(stats_path, timestamps_json_path)
+    writefile.create_files(stats_path, timestamps_json_path, tasklist_path)
 
 
 while True:
@@ -117,9 +116,7 @@ while True:
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
 
-        if task_name not in task_list:
-            task_list.append(task_name)
-        order = task_list.index(task_name)
+        order = writefile.update_task_list(tasklist_path, task_name)
 
         # add event into files
         writefile.update_timestamps_csv(timestamps_csv_path, position, start_time, current_time)

@@ -2,6 +2,27 @@ import csv
 import json
 import shutil
 
+
+def update_task_list(file_path, task_name):
+    csvreader = csv.reader(open(file_path))
+    lines = list(csvreader)
+
+    size = len(lines) - 1
+    order = 0
+
+    for i in range(size):
+        if lines[i+1][1] == task_name:
+            return lines[i+1][0]
+        order += 1
+
+    line = [order, task_name]
+    csvwriter = csv.writer(open(file_path, 'a'))
+    csvwriter.writerow(line)
+
+    return order
+
+
+
 def update_task_names(file_path, task_names):
     csvreader = csv.reader(open(file_path))
     lines = list(csvreader)
@@ -59,6 +80,7 @@ def update_timestamps_json(file_path, task_name, start, end):
         json.dump(file_data, file, indent=4)
 
 
-def create_files(stats_path, timestamps_path):
+def create_files(stats_path, timestamps_path, tasklist_path):
     shutil.copy('/home/pi/TasktopFiles/stats_template.csv', stats_path)
     shutil.copy('/home/pi/TasktopFiles/timestamps_template.json', timestamps_path)
+    shutil.copy('/home/pi/TasktopFiles/tasklist_template.csv', tasklist_path)
