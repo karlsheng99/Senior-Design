@@ -46,17 +46,34 @@
           chart.draw(dataTable, options);
         }
     </script>
+    <style>
+      .myButton {
+        background-color: #a38ba350; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+    </style>
+    
     <title>Tasktop Home</title>
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+    
 </head>
 
 <body style="text-align: center;">
 
     <h1 style="color: green;">Tasktop Home</h1>
 
-    <button><a href="/playground/daily_summary/">Daily Summary</a></button>
-    <button><a href="/playground/columnchart/">Weekly Summary</a></button>
-    <button><a href="/playground/settings/">Settings</a></button>
+    <button class="myButton"><a href="/playground/daily_summary/">Daily Summary</a></button>
+    <button class="myButton"><a href="/playground/columnchart/">Weekly Summary</a></button>
+    <button class="myButton"><a href="/playground/settings/">Settings</a></button>
     <br>
     <br>
     <div id="timeline" style="width: 1200px; height: 600px; margin: auto"></div>
