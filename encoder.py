@@ -19,14 +19,14 @@ def read8Position(p1State, p2State, p3State, p4State):
     gray = str(p1State) + str(p2State) + str(p3State) + str(p4State)
     
     switcher = {
-        '0000' : 0,
-        '0100' : 1,
-        '1100' : 2,
-        '1110' : 3,
-        '0110' : 4,
-        '0111' : 5,
-        '0011' : 6,
-        '0010' : 7
+        '0000' : 7,
+        '0100' : 6,
+        '1100' : 5,
+        '1110' : 4,
+        '0110' : 3,
+        '0111' : 2,
+        '0011' : 1,
+        '0010' : 0
     }
     
     return switcher.get(gray, 0)
