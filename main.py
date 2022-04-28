@@ -24,14 +24,14 @@ GPIO.setup(p3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(p4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(b1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-colors = [(80, 91, 199),
-          (188, 66, 39),
-          (228, 159, 51),
-          (84, 153, 42),
-          (132, 0, 150),
-          (92, 148, 195),
-          (191, 71, 120),
-          (124, 174, 40)]
+colors = [(51, 102, 204),
+          (16, 150, 24),
+          (217, 217, 217),
+          (204, 204, 0),
+          (255, 153, 0),
+          (128, 0, 42),
+          (0, 0, 0),
+          (184, 46, 138)]
 
 lcd1602 = RGB1602.RGB1602(16, 2)
 
