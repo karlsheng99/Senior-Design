@@ -98,12 +98,14 @@ while True:
                 # else:
                 #     start_time = datetime.now()
                 start_time = datetime.now()
+                time.sleep(0.3)
 
             elif buttonState == False and timerState == True:
                 timerState = False
                 # pause = True
                 # pause_time = datetime.now()
                 current_time = datetime.now()
+                time.sleep(0.3)
                 break
 
             if timerState == True:
@@ -113,7 +115,7 @@ while True:
                 timer_sec = lcd.print_time(timer.total_seconds())
                 lcd.display(lcd1602, task_name, timer_sec, color)
             
-            time.sleep(0.3)
+            time.sleep(0.1)
         hour = current_time - start_time
         hour_sec = hour.total_seconds()
 
